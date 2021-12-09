@@ -11,6 +11,7 @@ import frc.robot.RobotMap;
  
 /** Add your docs here. */
 public class DriveTrain extends Subsystem {
+  //Notes: instance of the VictorSP class
   VictorSP exampleMotor = new VictorSP(RobotMap.Example_Motor_ID);  
    
   // Put methods for controlling this subsystem
@@ -23,6 +24,7 @@ public class DriveTrain extends Subsystem {
   }
 
   public void setMotor(){
+    //Notes sets motor to full speed
     exampleMotor.set(1);
   }
 

@@ -21,6 +21,7 @@ import frc.robot.subsystems.DriveTrain;
 public class Robot extends TimedRobot {
   
   public static OI m_oi;
+  // instance of the DriveTrain subsystem
   public static DriveTrain driveTrain = new DriveTrain();
 
   
@@ -85,6 +86,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
+    //Notes: calls the setMotor method repeatedly which 
     driveTrain.setMotor();
     
   }
