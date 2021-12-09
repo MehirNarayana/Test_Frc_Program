@@ -24,7 +24,7 @@ public class DriveTrain extends Subsystem {
   }
 
   public void setMotor(){
-    //Notes sets motor to full speed
+    //Notes: sets motor to full speed
     exampleMotor.set(1);
   }
 
