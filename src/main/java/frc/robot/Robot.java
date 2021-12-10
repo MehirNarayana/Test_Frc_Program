@@ -88,6 +88,11 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     //Notes: calls the setMotor method repeatedly which 
     driveTrain.setMotor();
+
+    //Testing for Moving Forward
+    //driveTrain.moveForward();
+    //Testing for Turn Left
+   // driveTrain.turnRight();
     
   }
 

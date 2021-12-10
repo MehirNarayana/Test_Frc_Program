@@ -13,6 +13,10 @@ public class RobotMap {
   //Notes: Constant defined here
   // Notes: Port number of the Victor SP motor
   public static final int Example_Motor_ID = 9;
+  public static final int front_Right_Motor_ID = 1;
+  public static final int front_Left_Motor_ID = 2;
+  public static final int back_Right_Motor_ID = 3;
+  public static final int back_Left_Motor_ID = 4;
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
