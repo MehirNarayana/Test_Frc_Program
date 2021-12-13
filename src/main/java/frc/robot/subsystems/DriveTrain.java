@@ -12,14 +12,17 @@ import frc.robot.RobotMap;
 /** Add your docs here. */
 public class DriveTrain extends Subsystem {
   //Notes: instance of the VictorSP class
-  VictorSP exampleMotor = new VictorSP(RobotMap.Example_Motor_ID);  
+  //VictorSP exampleMotor = new VictorSP(RobotMap.Example_Motor_ID);  
   VictorSP frontRight = new VictorSP(RobotMap.front_Right_Motor_ID );
   VictorSP frontLeft = new VictorSP(RobotMap.front_Left_Motor_ID );
-  VictorSP backRight = new VictorSP(RobotMap.back_Right_Motor_ID );
-  VictorSP backLeft = new VictorSP(RobotMap.back_Left_Motor_ID );
+  
+  //VictorSP backRight = new VictorSP(RobotMap.back_Right_Motor_ID );
+  //VictorSP backLeft = new VictorSP(RobotMap.back_Left_Motor_ID );
    
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+
+  
 
   @Override
   public void initDefaultCommand() {
@@ -29,28 +32,32 @@ public class DriveTrain extends Subsystem {
 
   public void setMotor(){
     //Notes: sets motor to full speed
-    exampleMotor.set(1);
+    frontRight.set(1);
+    frontLeft.set(-1);
   }
 
- 
+  public void setController(double speed){
+    frontRight.set(speed);
+    frontLeft.set(speed*-1);
+  }
 
   
 
  
 //Moving the Robot Forward
   public void moveForward(){
-    frontRight.set(-1);
-    frontLeft.set(1);
-    backRight.set(-1);
-    backLeft.set(1);
+    //frontRight.set(-1);
+    //frontLeft.set(1);
+    //backRight.set(-1);
+    //backLeft.set(1);
 
   }
 //Turning the Robot to the Right
   public void turnRight(){
-    frontLeft.set(1);
-    backLeft.set(1);
-    frontRight.set(1);
-    backRight.set(1);
+    //frontLeft.set(1);
+    //backLeft.set(1);
+    //frontRight.set(1);
+    //backRight.set(1);
 
 
   }

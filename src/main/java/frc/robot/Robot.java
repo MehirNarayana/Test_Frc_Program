@@ -87,7 +87,8 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     //Notes: calls the setMotor method repeatedly which 
-    driveTrain.setMotor();
+    //driveTrain.moveForward();
+    driveTrain.setController(m_oi.Get_Trigger());
 
     //Testing for Moving Forward
     //driveTrain.moveForward();

@@ -12,11 +12,14 @@ package frc.robot;
 public class RobotMap {
   //Notes: Constant defined here
   // Notes: Port number of the Victor SP motor
-  public static final int Example_Motor_ID = 9;
-  public static final int front_Right_Motor_ID = 1;
+  //public static final int Example_Motor_ID = 9;
+  public static final int front_Right_Motor_ID = 9;
   public static final int front_Left_Motor_ID = 2;
   public static final int back_Right_Motor_ID = 3;
   public static final int back_Left_Motor_ID = 4;
+  public static final int Controller_Input = 8; //Gotta change this after 
+  public static final int Right_Trigger = 3;
+  public static final int Left_Trigger = 2;
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
