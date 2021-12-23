@@ -89,7 +89,7 @@ public class Robot extends TimedRobot {
     //Notes: calls the setMotor method repeatedly which 
     //driveTrain.moveForward();
     driveTrain.liftWeight(15);
-
+    driveTrain.Foward(10);
     //Testing for Moving Forward
     //driveTrain.moveForward();
     //Testing for Turn Left
