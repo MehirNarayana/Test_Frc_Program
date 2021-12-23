@@ -5,7 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Command;  
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -23,7 +23,7 @@ public class Robot extends TimedRobot {
   public static OI m_oi;
   // instance of the DriveTrain subsystem
   public static DriveTrain driveTrain = new DriveTrain();
-
+  
   
 
   /**
@@ -88,7 +88,7 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     //Notes: calls the setMotor method repeatedly which 
     //driveTrain.moveForward();
-    driveTrain.setController(m_oi.Get_Trigger());
+    driveTrain.liftWeight(15);
 
     //Testing for Moving Forward
     //driveTrain.moveForward();
@@ -103,7 +103,7 @@ public class Robot extends TimedRobot {
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
-    
+    driveTrain.setController(m_oi.Get_Trigger());
   }
 
   /** This function is called periodically during operator control. */
