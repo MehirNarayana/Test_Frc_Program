@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.Encoder;
 import frc.robot.RobotMap;
 
  
@@ -15,6 +16,11 @@ public class DriveTrain extends Subsystem {
   //VictorSP exampleMotor = new VictorSP(RobotMap.Example_Motor_ID);  
   VictorSP frontRight = new VictorSP(RobotMap.front_Right_Motor_ID );
   VictorSP frontLeft = new VictorSP(RobotMap.front_Left_Motor_ID );
+  VictorSP liftMotor = new VictorSP(RobotMap.Lift_Motor_ID);
+  
+  Encoder encoder = new Encoder(0, 1);
+
+   
   
   //VictorSP backRight = new VictorSP(RobotMap.back_Right_Motor_ID );
   //VictorSP backLeft = new VictorSP(RobotMap.back_Left_Motor_ID );
@@ -29,6 +35,9 @@ public class DriveTrain extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
+
+
+
 
   public void setMotor(){
     //Notes: sets motor to full speed
@@ -56,8 +65,23 @@ public class DriveTrain extends Subsystem {
   public void turnRight(){
     //frontLeft.set(1);
     //backLeft.set(1);
-    //frontRight.set(1);
+    //frontRight.set(1);                    
     //backRight.set(1);
+
+
+  }
+
+
+  public void liftWeight(int height) {
+    if (encoder.get() * RobotMap.Count_Distance != height) {
+      liftMotor.set(0.2);
+    } 
+
+    else {
+      encoder.reset();
+    }
+
+    
 
 
   }
