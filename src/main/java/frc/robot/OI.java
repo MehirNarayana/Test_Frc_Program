@@ -25,6 +25,26 @@ public class OI {
 
   }
 
+
+  public int Get_Button(){
+    if (driverController.getAButton()){
+      return 5;  
+    }
+
+    else if (driverController.getBButton()){
+      return 10;
+    }
+    
+    else if (driverController.getYButton()){
+      return 15;
+    }
+
+    else{
+      return 0;
+    }
+    
+  }
+
   //public double Get_Left_Trigger(){
     //return driverController.getRawAxis(RobotMap.Left_Trigger);
 

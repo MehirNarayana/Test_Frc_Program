@@ -16,9 +16,8 @@ public class DriveTrain extends Subsystem {
   //VictorSP exampleMotor = new VictorSP(RobotMap.Example_Motor_ID);  
   VictorSP frontRight = new VictorSP(RobotMap.front_Right_Motor_ID );
   VictorSP frontLeft = new VictorSP(RobotMap.front_Left_Motor_ID );
-  VictorSP liftMotor = new VictorSP(RobotMap.Lift_Motor_ID);
-  
-  Encoder encoder = new Encoder(0, 1);
+  Encoder encoder = new Encoder(2, 3);
+ 
 
    
   
@@ -71,27 +70,27 @@ public class DriveTrain extends Subsystem {
 
   }
 
+   
   public void Foward(int Length){
     if (encoder.get() * RobotMap.Count_Distance != Length){
-      frontRight.set(0.2);
-      frontLeft.set(-0.2);
+      double error = Length - encoder.get() * RobotMap.Count_Distance;
+      double motorOutput = RobotMap.kP * error;
+                    
+
+      
+      
+      frontRight.set(motorOutput);
+      frontLeft.set(motorOutput*-1);
       }
     else {
       encoder.reset();
     }
   }
-  public void liftWeight(int height) {
-    if (encoder.get() * RobotMap.Count_Distance != height) {
-      liftMotor.set(0.2);
-    } 
-
-    else {
-      encoder.reset();
-    }
+ 
 
     
 
 
-  }
-
 }
+
+

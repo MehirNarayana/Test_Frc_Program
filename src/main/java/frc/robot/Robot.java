@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
-
+import frc.robot.subsystems.Lift;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -22,7 +22,8 @@ public class Robot extends TimedRobot {
   
   public static OI m_oi;
   // instance of the DriveTrain subsystem
-  public static DriveTrain driveTrain = new DriveTrain();
+  DriveTrain driveTrain = new DriveTrain();
+  Lift lift = new Lift(); 
   
   
 
@@ -88,8 +89,8 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     //Notes: calls the setMotor method repeatedly which 
     //driveTrain.moveForward();
-    driveTrain.liftWeight(15);
-    driveTrain.Foward(10);
+    lift.liftWeight(15);
+    driveTrain.Foward(120);
     //Testing for Moving Forward
     //driveTrain.moveForward();
     //Testing for Turn Left
@@ -104,6 +105,7 @@ public class Robot extends TimedRobot {
     // continue until interrupted by another command, remove
     // this line or comment it out.
     driveTrain.setController(m_oi.Get_Trigger());
+    lift.liftWeight(m_oi.Get_Button());
   }
 
   /** This function is called periodically during operator control. */

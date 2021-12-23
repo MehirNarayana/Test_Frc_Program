@@ -23,6 +23,11 @@ public class RobotMap {
   public static final int Counts_Per_Rev = 1024;
   public static final double Count_Distance = 2 * Math.PI / Counts_Per_Rev;
   public static final int Lift_Motor_ID = 6; //Gotta change this after as well
+  public static final double kP = 0.4;
+  public static final int Button_A = 1;
+  public static final int Button_B = 2;
+  public static final int Button_Y= 4;
+
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
