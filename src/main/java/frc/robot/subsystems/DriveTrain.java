@@ -74,11 +74,10 @@ public class DriveTrain extends Subsystem {
   public void Foward(int Length){
     if (encoder.get() * RobotMap.Count_Distance != Length){
       frontRight.set(0.2);
-      frontLeft.set(0.2);
+      frontLeft.set(-0.2);
       }
     else {
-      frontRight.set(0);
-      frontLeft.set(0);
+      encoder.reset();
     }
   }
   public void liftWeight(int height) {
