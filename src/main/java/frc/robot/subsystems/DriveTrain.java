@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.Encoder;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.Timer;
 
  
 /** Add your docs here. */
@@ -17,7 +18,7 @@ public class DriveTrain extends Subsystem {
   VictorSP frontRight = new VictorSP(RobotMap.front_Right_Motor_ID );
   VictorSP frontLeft = new VictorSP(RobotMap.front_Left_Motor_ID );
   Encoder encoder = new Encoder(2, 3);
- 
+   
 
    
   
@@ -69,21 +70,35 @@ public class DriveTrain extends Subsystem {
 
 
   }
-
-   
+  
+  double errorSum = 0;
+  public double lastTime = Timer.getFPGATimestamp();
+  public double lastError = 120;
+  
   public void Foward(int Length){
     if (encoder.get() * RobotMap.Count_Distance != Length){
+      
+      
       double error = Length - encoder.get() * RobotMap.Count_Distance;
-      double motorOutput = RobotMap.kP * error;
-                    
+      
+      double dt = Timer.getFPGATimestamp() - lastTime;
+      double errorRate = (error - lastError) / dt; 
+      errorSum += error * dt;
+      double motorOutput = RobotMap.kP * error + RobotMap.kI * errorSum * RobotMap.kD * errorRate;
 
       
       
       frontRight.set(motorOutput);
+      
       frontLeft.set(motorOutput*-1);
+      lastTime = Timer.getFPGATimestamp();
+      lastError = error;
+
       }
     else {
       encoder.reset();
+      lastTime = 0;
+      lastError = 0;
     }
   }
  

@@ -27,6 +27,8 @@ public class RobotMap {
   public static final int Button_A = 1;
   public static final int Button_B = 2;
   public static final int Button_Y= 4;
+  public static final double kI = 0.05;
+  public static final double kD = 0.01;
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
